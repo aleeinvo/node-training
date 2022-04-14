@@ -1,17 +1,17 @@
-const fs = require('fs');
-
-console.log('start');
-
-fs.readFile('./data.json', 'utf-8', (error, data) => {
-    if(error) {
-        throw error;
-    }
-
-    let users = JSON.parse(data.trim()).users;
-
-    users.forEach(user => {
-        console.log(user);
-    })
+const promise = new Promise((resolve, reject) => {
+    reject('oops');
+    setTimeout(() => {
+        resolve('We doing fine for now!');
+    }, 1e3);
 });
 
-console.log('end');
+promise.then(data => {
+    console.log(data);
+}).catch((reson) => {
+    console.log(reson);
+})
+.finally(() => {
+    console.log('We are done here.');
+})
+
+console.log('still waiting');
