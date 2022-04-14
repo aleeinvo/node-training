@@ -1,9 +1,4 @@
-const promise = new Promise((resolve, reject) => {
-    reject('oops');
-    setTimeout(() => {
-        resolve('We doing fine for now!');
-    }, 1e3);
-});
+const promise = Promise.reject('oops');
 
 promise.then(data => {
     console.log(data);
